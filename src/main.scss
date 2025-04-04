@@ -1,0 +1,179 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+// body {
+//   line-height: 1.5;
+//   letter-spacing: 0.06em;
+//   font-size: 1rem;
+//   @apply font-light
+//     bg-white text-gray-800
+//     dark:bg-gray-800 dark:text-white;
+// }
+
+// main {
+//   letter-spacing: 0.04em;
+//   font-size: 1.05rem;
+// }
+
+// img {
+//   border-radius: 0.1rem;
+//   max-width: 100%;
+// }
+
+// figure.wp-block-image img {
+//   max-width: 100%;
+//   height: auto;
+// }
+
+header {
+  .dropdown {
+    display: flex;
+    justify-content: center;
+    position: relative;
+
+    &.dropdown-header {
+      display: flex;
+      justify-content: center;
+    }
+
+    .dropdown-label:not(:focus):not(:focus-within)
+      + .dropdown-menu:not(:focus):not(:focus-within) {
+      position: absolute !important;
+      width: 1px !important;
+      height: 1px !important;
+      padding: 0 !important;
+      margin: -1px !important;
+      overflow: hidden !important;
+      clip: rect(0, 0, 0, 0) !important;
+      white-space: nowrap !important;
+      border: 0 !important;
+    }
+
+    .dropdown-menu {
+      top: calc(100% - 0.5rem);
+      max-width: calc(100% + 2rem);
+      min-width: 8rem;
+      box-sizing: border-box;
+      position: absolute;
+      background-color: #fff;
+
+      .dropdown-item {
+        display: block;
+        padding: 0.3rem 0.5rem;
+        word-wrap: break-word;
+        white-space: normal;
+        &:not(:last-child) {
+          border-bottom: 1px solid #444;
+        }
+        &:focus {
+          outline: 4px solid #444;
+          border: none;
+        }
+      }
+    }
+  }
+}
+
+[data-markdown="true"] {
+  // a {
+  //   text-decoration: underline;
+  //   color: #0369a1;
+  // }
+  ul {
+    margin: 0.5rem 0.5rem 0.5rem 1.5rem;
+    list-style-type: disc;
+    list-style: disc;
+    ul {
+      margin: 0 1rem;
+    }
+  }
+  table {
+    @apply table;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    margin-top: 0.4em;
+    margin-bottom: 0.2em;
+    scroll-margin-top: 3.5rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+    font-weight: 500;
+  }
+  h2 {
+    font-size: 1.6rem;
+    font-weight: 400;
+  }
+  h3 {
+    font-size: 1.2rem;
+    font-weight: 400;
+  }
+  h4 {
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  img {
+    @apply my-2 inline-flex;
+  }
+
+  p {
+    @apply my-2;
+  }
+
+  hr {
+    @apply my-2;
+  }
+}
+
+ul.pagination {
+  @apply m-0 p-0;
+  display: flex;
+  width: fit-content;
+
+  li.page-item {
+    display: block;
+  }
+}
+
+
+@keyframes slideIn {
+  0% {
+    transform: translateX(2rem) translateY(-1rem);
+    opacity: 0;
+  }
+  50% {
+    opacity: .2;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-in {
+  animation: .5s ease-out 0s 1 slideIn;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: .5s ease-out 0s 1 fadeIn;
+}

@@ -1,0 +1,107 @@
+backend:
+  name: github
+  repo: neonwhiskers/eroshevich.me
+  branch: main
+
+media_folder: "/src/media/images"
+public_folder: "/media/images/"
+
+collections:
+  - label: Pages
+    name: pages
+    description: List of pages
+    folder: /src
+    preview_path: /{{slug}}/
+    extension: md
+    create: true
+    fields:
+      - label: Layout
+        name: layout
+        widget: hidden
+        default: Default.tsx
+      - label: Title
+        name: title
+        widget: string
+        editor:
+          preview: false
+      - label: Content
+        name: body
+        widget: markdown
+      - label: Menu
+        name: menu
+        widget: object
+        fields:
+          - label: Header
+            name: header
+            widget: boolean
+            required: false
+            default: false
+          - label: Footer
+            name: footer
+            widget: boolean
+            required: false
+            default: false
+  - label: Projects
+    name: posts
+    description: List of blog posts
+    folder: /src/projects/
+    preview_path: blog/{{slug}}/
+    extension: md
+    create: true
+    fields:
+      - label: Layout
+        name: layout
+        widget: hidden
+        default: Blog.tsx
+      - label: Title
+        name: title
+        widget: string
+      - label: Preview Image (not shown in content)
+        name: imgUrl
+        widget: image
+      - label: Date
+        name: date
+        widget: date
+      - label: Show in blog list
+        name: preojects
+        widget: boolean
+        required: true
+        default: true
+      - label: Excerpt (f/e/ first paragraph)
+        name: excerpt
+        widget: text
+      - label: Content
+        name: body
+        widget: markdown
+  - label: Press
+    name: posts
+    description: List of blog posts
+    folder: /src/press/
+    preview_path: blog/{{slug}}/
+    extension: md
+    create: true
+    fields:
+      - label: Layout
+        name: layout
+        widget: hidden
+        default: Blog.tsx
+      - label: Title
+        name: title
+        widget: string
+      - label: Preview Image (not shown in content)
+        name: imgUrl
+        widget: image
+      - label: Date
+        name: date
+        widget: date
+      - label: Show in blog list
+        name: press
+        widget: boolean
+        required: true
+        default: true
+      - label: Excerpt (f/e/ first paragraph)
+        name: excerpt
+        widget: text
+      - label: Content
+        name: body
+        widget: markdown

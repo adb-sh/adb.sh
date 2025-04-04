@@ -1,0 +1,58 @@
+---
+layout: Raw.tsx
+title: Blog
+---
+
+<h1 class="my-8 font-thin text-5xl">Blog</h1>
+
+<div>
+  {page.data.results.map((page) => (
+    <a href={page.data.url}>
+      <comp.BlogListItem page={page} />
+    </a>
+  ))}
+</div>
+
+<nav>
+  <ul class="pagination join">
+    {page.data.pagination.previous ? (
+      <li class="page-item">
+        <a
+          class="page-link btn btn-secondary join-item"
+          href={`/blog/${page.data.pagination.previous}`}
+        >
+          &laquo;
+        </a>
+      </li>
+    ) : (
+      <li class="page-item">
+        <a class="page-link btn btn-secondary join-item">&laquo;</a>
+      </li>
+    )}
+    {new Array(page.data.pagination.totalPages).fill().map((_, index) => (
+      <li class="page-item">
+        <a class="page-link btn btn-secondary join-item" href={`/blog/page/${index + 1}`}>
+          {index + 1}
+        </a>
+      </li>
+    ))}
+    {page.data.pagination.next ? (
+      <li class="page-item">
+        <a
+          class="page-link btn btn-secondary join-item"
+          href={`/blog/${page.data.pagination.next}`}
+        >
+          &raquo;
+        </a>
+      </li>
+    ) : (
+      <li class="page-item">
+        <a class="page-link btn btn-secondary join-item">&raquo;</a>
+      </li>
+    )}
+  </ul>
+</nav>
+
+<a class="btn btn-primary my-2" href="/feed.rss">
+  RSS-Feed
+</a>
